@@ -1,0 +1,343 @@
+/*
+
+Consider setting this to get rid of added padding
+Mainly if you will be aligning things (esp. horizontally)
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*/
+
+html, body {
+	cursor: default;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	overflow: hidden;
+	font-family: Arial;
+}
+
+.event {
+	margin-left: 2%;
+	margin-bottom: 1px;
+	width: 94%;
+	height: 18px;
+	color: blue;
+	text-align: left;
+	padding-left: 3px;
+	z-index: 2;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-color: lightgrey;
+  border-radius: 4px;
+
+}
+
+.eventName {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	font-size: 15px;
+}
+
+#createEventButton {
+	float: right;
+	vertical-align: middle;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+hr {
+	clear: left;
+}
+
+#listTitle p {
+	display: inline;
+	float: left;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5%;
+}
+
+#createEventWindow, #editEventWindow {
+	display: none;
+	z-index: 4;
+	position: fixed;
+  top: 20%;
+  bottom: 20%;
+  left: 35%;
+  right: 35%;
+	background: white;
+	border-style: solid;
+  border-width: 3px;
+  border-color: black;
+}
+
+#pageCover {
+	display: none;
+	z-index: 3;
+	position: fixed;
+	top: 0%;
+	bottom: 0%;
+	left: 0%;
+	right: 0%;
+	/*-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-ms-filter: blur(10px);
+	-o-filter: blur(10px);
+	filter: blur(10px);*/
+	opacity: 0.5;
+	background-color: grey;
+}
+
+#eventStartTime, #eventEndTime {
+	margin: 0px;
+	padding: 0px;
+}
+
+#left {
+	float: left;
+	width: 150px;
+	height: 100%;
+	background: lightgrey;
+}
+
+#calendar {
+	position: absolute;
+	top: 0px;
+	right: 200px;
+	bottom: 0px;
+	left: 0px;
+	float: left;
+	background: white;
+}
+
+#list {
+	float: right;
+	position: relative;
+	width: 199px;
+	height: 100%;
+	background: lightgrey;
+	border-left: solid;
+	border-color: grey;
+	border-left-width: 1px;
+	overflow: scroll;
+}
+
+#listTitle {
+	position: fixed;
+	width: inherit;
+	height: 40px;
+	background-color: lightgrey;
+	z-index: 2;
+}
+
+#listTitle p {
+	display: inline;
+	float: left;
+}
+
+#listContainer {
+	position: absolute;
+	width: 100%;
+	top: 40px;
+	bottom: 0px;
+	overflow: scroll;
+	overflow-x: none;
+}
+
+#iPhoneTodayButton {
+	display: none;
+}
+
+.listItem {
+	height: 38px;
+	width: 199px;
+	clear: left;
+}
+
+.listItem hr {
+	width: 90%;
+}
+
+.listDivTitle {
+	color: blue;
+	float: left;
+	display: inline;
+	width: 179px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 10px;
+}
+
+.listDivDate {
+	display: inline;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	font-size: 50%;
+	margin-bottom: 5%;
+	margin-left: 5%;
+}
+
+#cal_header {
+	/*position: absolute;
+	top: 0px;
+	right: 200px;
+	left: 0px;*/
+	width: 100%;
+	height: 70px;
+	background: white;
+}
+
+#headerContainer {
+	height: auto;
+	height: 50px;
+}
+
+#cal_header #header1 {
+	text-align: center;
+	font-size: 30px;
+	vertical-align: middle;
+	cursor: default;
+	padding: 0px;
+  margin: 0px;
+}
+
+#header1 {
+	float: left;
+	position: absolute;
+	top: 8px;
+	left: 11px;
+}
+
+#headerContainer input, #headerContainer button {
+	float: right;
+	margin-top: 15px;
+}
+
+#nextMonthButton {
+	margin-top: 15px;
+	margin-right: 15px;
+}
+
+#changeMonth {
+	float: right;
+	text-align:  center;
+	margin-top: 15px;
+	margin-right: 10px;
+}
+
+#calendarTable, table {
+	height: 100%;
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	border-color: lightgrey;
+}
+
+#calendarTableDiv {
+	position: absolute;
+	top: 70px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+
+table, th, td {
+	padding: 0px;
+	border: 1px solid black;
+	border-color: lightgrey;
+}
+
+tr {
+	/*This line fixes the problem of the height changing when elements are added, but it creates a 1 pixel bar on the bottom of the page..*/
+	height: 16.66666666666666667%;
+	max-height: 16.66666666666666667%;
+	overflow: hidden;
+	/*The overflow is not working...*/
+}
+
+td {
+	vertical-align: top;
+	/*This line fixes the problem of the height changing when elements are added, but it creates a 1 pixel bar on the bottom of the page..*/
+	height: 16.66666666666666667%;
+	max-height: 16.66666666666666667%;
+	overflow: y-scroll; 
+	/*The overflow is not working...*/
+}
+
+.weekTable {
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.weekTableDiv {
+	position: absolute;
+	bottom: 0px;
+}
+
+.dayCell {
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.dayCell p {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.cellDay {
+	height: 15px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	width: auto;
+}
+
+.cellDay p {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.dateNumber {
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+	float: right;
+	cursor: default;
+}
+
+/*
+.day {
+	width: 14.05%;
+	height: 16.666666%;
+	border: 1px black solid;
+	background: white;
+	float: left;
+}*/

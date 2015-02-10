@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>Information Systems Website</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Information Systems web application project. By James Ormond and Gus Henry." />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <!-- <meta name="keywords" content="" /> -->
+    <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 701px)" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 700px)" href="css/small-device.css" />
+    <link rel="stylesheet" href="js/jquery-ui-1.11.2/jquery-ui.css">
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/jquery-ui-1.11.2/external/jquery/jquery.js"></script>
+    <script src="js/jquery-ui-1.11.2/jquery-ui.js"></script>
+    <script src="js/underscore-min.js"></script>
+  </head>
+
+  <body onload="initPage()" onunload="saveData()" onkeydown="keyDown(event)" onkeyup="keyUp(event)">
+    <div id="pageCover"></div>
+    <div id="createEventWindow">
+      <form id="eventEdit" name="eventEdit">
+        Event name: <input type="text" name="eventName" placeholder="New Event" value="">
+        <br />
+        Event Date: <input type="text" class="datepicker" id="eventStartDate" name="eventStartDate">
+        <br />
+        <input type="text" class="datepicker" id="eventEndDate" name="eventEndDate" style="display:none;">
+        <p id="eventStartTime">Event Start Time: <input type="time" name="eventStartTime"><br /></p>
+        <p id="eventEndTime">Event End Time: <input type="time" name="eventEndTime"><br /></p>
+        All day event: <input type="checkbox" name="allDay" value="allDay" onclick="allDayToggle(this)">
+        <br />
+        Event Description: <input type="text" name="eventDescription">
+        <br />
+        <button type="button" name="saveButton" onclick="saveEvent()">Save Event</button>&nbsp;
+        <button type="button" name="cancelButton">Cancel</button>&nbsp;
+        <button type="button" name="deleteButton">Delete Event</button>
+      </form>
+    </div>
+    <!--<div id="left">
+      <div id="calendarsTitle">Calendars<input type="button" value="New Calendar" onclick="createNewCalendar()"></div>
+    </div>-->
+    <div id="list">
+      <div id="listTitle">
+        <button id="iPhoneTodayButton" onclick="goToToday()">Today</button>
+        <button id="createEventButton">Create Event</button>
+        <!-- <div id="eventList"> -->
+          <p>Event List</p>
+        <!-- </div> -->
+        <hr />
+      </div>
+      <div id="listContainer"></div>
+    </div>
+    <div id="calendar">
+      <div id="cal_header">
+        <div id="headerContainer">
+          <h1 id="header1"></h1>
+          <input id="nextMonthButton" type="button" onclick="nextMonth()" value=">">
+          <button id="todayButton" onclick="goToToday()">Today</button>
+          <input id="prevMonthButton"type="button" onclick="prevMonth()" value="<">
+        </div>
+        <div id="weekTableDiv">
+        </div>
+        <!-- <button onclick="deleteCurrentYearsEvents()">Delete Current Year's Events</button> -->
+      </div>
+      <div id="calendarTableDiv">
+      </div>
+    </div>
+  </body>
+
+</html>
